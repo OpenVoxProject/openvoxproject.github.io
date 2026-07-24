@@ -1,0 +1,158 @@
+[
+  {
+    "slug": "openvox",
+    "name": "OpenVox",
+    "eyebrow": "Core Platform",
+    "tagline": "The engine itself",
+    "summary": "OpenVox is the community implementation of Puppet — the agent and catalog compiler that keeps every managed node in its declared state. It runs standalone or paired with OpenVox Server, and every manifest, module, and Hiera dataset you already have carries over unchanged.",
+    "docsPath": "/openvox/latest/",
+    "features": [
+      {
+        "heading": "Cross-platform",
+        "body": "Manages Linux, Unix, and Windows systems from a single declarative language."
+      },
+      {
+        "heading": "Agent or standalone",
+        "body": "Run with a central server for fleet-wide management, or standalone for local, agentless runs."
+      },
+      {
+        "heading": "Drop-in compatible",
+        "body": "Existing manifests, modules, Hiera data, and tooling transition from Puppet Open Source without changes."
+      },
+      {
+        "heading": "Secure by default",
+        "body": "Agent-to-server traffic runs over HTTPS with mutual TLS."
+      }
+    ]
+  },
+  {
+    "slug": "openvox-server",
+    "name": "OpenVox Server",
+    "eyebrow": "Server",
+    "tagline": "The hub your agents check in to",
+    "summary": "OpenVox Server compiles catalogs, serves files, runs the certificate authority, and processes reports for every agent in your fleet. It's the JVM-based control point that turns individual OpenVox agents into a managed, auditable fleet.",
+    "docsPath": "/openvox-server/latest/",
+    "features": [
+      {
+        "heading": "Catalog compilation",
+        "body": "Builds node-specific configuration catalogs on every agent check-in."
+      },
+      {
+        "heading": "Built-in CA",
+        "body": "Issues and manages certificates for mutual-TLS agent authentication."
+      },
+      {
+        "heading": "Hiera-aware",
+        "body": "Resolves hierarchical data lookups as part of every catalog compile."
+      },
+      {
+        "heading": "Built to scale",
+        "body": "Runs on Java 17 or 21, sized for fleets from dozens to thousands of nodes."
+      }
+    ]
+  },
+  {
+    "slug": "openvoxdb",
+    "name": "OpenVoxDB",
+    "eyebrow": "Data Warehouse",
+    "tagline": "Every fact, catalog, and report — queryable",
+    "summary": "OpenVoxDB stores the current facts and catalog for every managed node, plus a searchable history of run reports. It's what powers exported resources and gives you a queryable, real-time picture of your whole infrastructure.",
+    "docsPath": "/openvoxdb/latest/",
+    "features": [
+      {
+        "heading": "Central inventory",
+        "body": "Keeps the latest facts and catalog for every node in one place."
+      },
+      {
+        "heading": "Exported resources",
+        "body": "Lets nodes manage resources on other nodes, resolved through OpenVoxDB — dramatically faster than legacy approaches."
+      },
+      {
+        "heading": "Searchable history",
+        "body": "Query event reports over a configurable retention window."
+      },
+      {
+        "heading": "Built to scale",
+        "body": "Runs comfortably from small environments up to thousands of nodes."
+      }
+    ]
+  },
+  {
+    "slug": "openfact",
+    "name": "OpenFact",
+    "eyebrow": "System Inventory",
+    "tagline": "What every node knows about itself",
+    "summary": "OpenFact is the community continuation of Facter — the library that discovers OS, hardware, and network facts about a node and hands them to OpenVox as structured data. It ships bundled with the OpenVox agent, so there's nothing extra to install.",
+    "docsPath": "/openfact/latest/",
+    "features": [
+      {
+        "heading": "Deep discovery",
+        "body": "Collects OS, hardware, and network details across Linux, Windows, macOS, and network devices."
+      },
+      {
+        "heading": "Bundled by default",
+        "body": "Ships with openvox-agent — no separate install."
+      },
+      {
+        "heading": "Custom facts",
+        "body": "Supports custom and external facts unchanged from the original Facter."
+      },
+      {
+        "heading": "Standalone or integrated",
+        "body": "Works as a CLI tool for ad-hoc inspection, or feeds every OpenVox run automatically."
+      }
+    ]
+  },
+  {
+    "slug": "openbolt",
+    "name": "OpenBolt",
+    "eyebrow": "Orchestration",
+    "tagline": "Agentless, one-off, and multi-target automation",
+    "summary": "OpenBolt is the community implementation of Puppet Bolt: run commands, scripts, tasks, and orchestration plans over plain SSH and WinRM, with no agent to install or maintain. It's the right tool for one-time operations and multi-node orchestration that doesn't need a standing agent.",
+    "docsPath": "/openbolt/latest/",
+    "features": [
+      {
+        "heading": "Agentless",
+        "body": "Connects directly over SSH and WinRM — nothing to install on targets."
+      },
+      {
+        "heading": "From commands to plans",
+        "body": "Scale up from a single shell command to conditional, multi-target orchestration plans."
+      },
+      {
+        "heading": "Cross-platform",
+        "body": "Automates both *nix and Windows targets."
+      },
+      {
+        "heading": "Fully compatible",
+        "body": "Existing Puppet Bolt tasks, plans, modules, and inventory files work unchanged."
+      }
+    ]
+  },
+  {
+    "slug": "openvox-containers",
+    "name": "OpenVox Containers",
+    "eyebrow": "Containers",
+    "tagline": "OpenVox, already in a box",
+    "summary": "OpenVox Containers is a set of maintained Docker and Podman images for running OpenVox Server, OpenVoxDB, OpenBolt, and the reporting tools around them — plus Compose and Helm examples for deploying the whole stack.",
+    "docsPath": "/openvox-containers/latest/",
+    "features": [
+      {
+        "heading": "Core components, containerized",
+        "body": "Ready-to-run images for OpenVox Server, OpenVoxDB, and OpenBolt."
+      },
+      {
+        "heading": "Orchestration examples",
+        "body": "Docker Compose (via CRAFTY) and Kubernetes Helm charts included."
+      },
+      {
+        "heading": "Reporting included",
+        "body": "Pre-configured PuppetBoard and OpenVoxView images for visualizing activity."
+      },
+      {
+        "heading": "CI/CD tooling",
+        "body": "Images for VoxBox, Onceover, R10k, and other pipeline tooling."
+      }
+    ]
+  }
+]

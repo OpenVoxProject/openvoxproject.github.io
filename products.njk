@@ -1,0 +1,30 @@
+---
+layout: base.njk
+pageId: products
+permalink: "/products.html"
+title: "Products — OpenVox"
+description: "The OpenVox family: the core platform, server, database, fact library, orchestration tool, and container images."
+---
+<vox-breadcrumbs class="vox-p-top-md">
+    <a href="/">Home</a>
+    <span aria-current="page">Products</span>
+</vox-breadcrumbs>
+
+<vox-hero heading="The OpenVox family">
+  <p>
+    One community, one set of tools. Everything below is drop-in compatible with its
+    Puppet counterpart and documented at
+    <a href="https://docs.openvoxproject.org/" target="_blank">docs.openvoxproject.org</a>.
+  </p>
+</vox-hero>
+
+<section class="section">
+  <vox-grid class="card-grid" min="280px">
+    {% for product in products %}
+    <vox-card heading="{{ product.name }}" href="/products/{{ product.slug }}.html">
+      <vox-badge slot="badge" variant="neutral">{{ product.eyebrow }}</vox-badge>
+      {{ product.summary }}
+    </vox-card>
+    {% endfor %}
+  </vox-grid>
+</section>

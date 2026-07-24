@@ -20,6 +20,7 @@
       <a href="/"{% if pageId == 'home' %} aria-current="page"{% endif %}>Home</a>
       <a href="/what-is-openvox.html"{% if pageId == 'what-is' %} aria-current="page"{% endif %}>What OpenVox Is</a>
       <a href="/why-openvox.html"{% if pageId == 'why' %} aria-current="page"{% endif %}>Why OpenVox</a>
+      <a href="/products.html"{% if pageId == 'products' %} aria-current="page"{% endif %}>Products</a>
       <button
         type="button"
         class="theme-toggle"
@@ -53,12 +54,13 @@
       <vox-footer-column heading="Project">
         <a href="/what-is-openvox.html">What OpenVox Is</a>
         <a href="/why-openvox.html">Why OpenVox</a>
-        <a href="#">Documentation</a>
+        <a href="/products.html">Products</a>
+        <a href="https://docs.openvoxproject.org/" target="_blank">Documentation</a>
       </vox-footer-column>
       <vox-footer-column heading="Community">
-        <a href="#">GitHub</a>
-        <a href="#">Vox Pupuli</a>
-        <a href="#">Get Involved</a>
+        <a href="https://github.com/OpenVoxProject">GitHub</a>
+        <a href="https://voxpupuli.org">Vox Pupuli</a>
+        <a href="https://voxpupuli.org/contributing/">Get Involved</a>
       </vox-footer-column>
       <p slot="bottom">&copy; 2026 The OpenVox contributors. Released under the Apache-2.0 License.</p>
     </vox-footer>
