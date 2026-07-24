@@ -1,0 +1,77 @@
+---
+layout: base.njk
+pageId: why
+permalink: "/why-openvox.html"
+title: "Why OpenVox — OpenVox"
+description: "Declarative, continuously enforced, and built to last: why teams choose OpenVox over Ansible, Salt, and Chef."
+---
+<vox-hero eyebrow="Why OpenVox" heading="Describe the state you want. OpenVox keeps you there.">
+  <p>
+    Other tools run your playbooks. OpenVox enforces your reality, on every node, every
+    run, forever.
+  </p>
+  <div slot="actions">
+    <vox-button href="#" variant="brand">Get Started</vox-button>
+    <vox-cta href="/what-is-openvox.html">What OpenVox Is</vox-cta>
+  </div>
+</vox-hero>
+
+<section class="section">
+  <div class="prose">
+    <p>
+      Ansible, Salt, and Chef are all capable tools, and plenty of shops run them well.
+      OpenVox makes a different set of bets, and if they match how you think about
+      infrastructure, nothing else comes close.
+    </p>
+  </div>
+
+  <vox-grid class="card-grid" min="320px">
+    <vox-card heading="Declarative, not procedural.">
+      With OpenVox you describe the end state: this package installed, this service
+      running, this file with these permissions. The platform figures out how to get
+      there on any supported OS, and the same code that builds a system also verifies it.
+      You maintain a model of your infrastructure, not a pile of scripts that happened to
+      work last time.
+    </vox-card>
+    <vox-card heading="Continuous enforcement, not one-shot runs.">
+      Push-based tools apply changes when someone runs them. The OpenVox agent checks in
+      on a schedule, corrects drift automatically, and reports what changed. When someone
+      hand-edits a config at 2 a.m., it gets fixed at the next run, and you have a record
+      that it happened. At ten nodes that's a convenience. At ten thousand, it's the
+      difference between knowing your fleet's state and hoping.
+    </vox-card>
+    <vox-card heading="A real language for real complexity.">
+      The declarative DSL gives you typed parameters, dependency graphs, and reusable
+      classes and defined types. Roles and profiles scale from one admin to large teams
+      without your codebase collapsing into copy-paste. You get the structure of software
+      engineering applied to infrastructure, because that's what it is.
+    </vox-card>
+    <vox-card heading="A mature ecosystem you already trust.">
+      Thousands of battle-tested Forge modules, decades of accumulated operational
+      knowledge, and tooling for testing, linting, and CI that treats infrastructure code
+      like code. Vox Pupuli alone maintains well over a hundred actively tested modules,
+      now validated against OpenVox itself.
+    </vox-card>
+    <vox-card heading="Built to last.">
+      Chef and Puppet both ended up owned by companies with their own priorities. OpenVox
+      can't be acquired, sunset, or relicensed out from under you. Its future belongs to
+      its users, which means it has one.
+    </vox-card>
+  </vox-grid>
+</section>
+
+<section class="section">
+  <div class="cta-band">
+    <h2>Your infrastructure. Your community. Your platform.</h2>
+    <p>Install OpenVox in minutes and bring your existing Puppet code with you.</p>
+    <div class="cta-actions">
+      <vox-button href="#" variant="brand">Installation Guide</vox-button>
+      <vox-button href="#" variant="alt">Join the Community</vox-button>
+    </div>
+  </div>
+</section>
+
+<div class="page-links">
+  <vox-cta href="/what-is-openvox.html">Read the OpenVox story</vox-cta>
+  <vox-cta href="/">Back to home</vox-cta>
+</div>

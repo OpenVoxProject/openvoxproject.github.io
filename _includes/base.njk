@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem('vox-theme');
+        var theme =
+          stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-vox-theme', theme);
+      })();
+    </script>
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <vox-header site-title="OpenVox" href="/">
+      <a href="/"{% if pageId == 'home' %} aria-current="page"{% endif %}>Home</a>
+      <a href="/what-is-openvox.html"{% if pageId == 'what-is' %} aria-current="page"{% endif %}>What OpenVox Is</a>
+      <a href="/why-openvox.html"{% if pageId == 'why' %} aria-current="page"{% endif %}>Why OpenVox</a>
+      <button
+        type="button"
+        class="theme-toggle"
+        data-theme-toggle
+        role="switch"
+        aria-checked="false"
+        aria-label="Switch to dark theme"
+        slot="actions"
+      >
+        <span class="theme-toggle-track">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+          </svg>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
+      <vox-button slot="actions" href="#" size="sm">Get Started</vox-button>
+    </vox-header>
+
+    <main>
+      <div class="wrap">
+        {{ content | safe }}
+      </div>
+    </main>
+
+    <vox-footer>
+      <vox-footer-column heading="Project">
+        <a href="/what-is-openvox.html">What OpenVox Is</a>
+        <a href="/why-openvox.html">Why OpenVox</a>
+        <a href="#">Documentation</a>
+      </vox-footer-column>
+      <vox-footer-column heading="Community">
+        <a href="#">GitHub</a>
+        <a href="#">Vox Pupuli</a>
+        <a href="#">Get Involved</a>
+      </vox-footer-column>
+      <p slot="bottom">&copy; 2026 The OpenVox contributors. Released under the Apache-2.0 License.</p>
+    </vox-footer>
+  </body>
+</html>

@@ -3,14 +3,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "eleventy --serve",
+    "build": "eleventy"
   },
   "dependencies": {
     "@avitacco/voxblocks": "^0.6.0"
   },
   "devDependencies": {
-    "vite": "^6.0.0"
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-plugin-vite": "^8.0.0"
   }
 }
