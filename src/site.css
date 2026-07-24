@@ -32,6 +32,11 @@ body {
   color: var(--vox-color-text-1);
 }
 
+.timeline {
+  max-width: 44rem;
+  margin-top: var(--vox-space-6);
+}
+
 .prose {
   max-width: 44rem;
   font-size: 16px;
