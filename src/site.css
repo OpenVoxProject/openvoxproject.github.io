@@ -1,3 +1,31 @@
+body {
+  /* Establishes a stacking context so the grain canvas (position:
+     fixed, z-index:-1 — see src/grain.js) paints on top of body's own
+     background but behind body's normal-flow children (header, main,
+     footer). Without this, body doesn't form its own stacking context,
+     so a negative z-index descendant paints *before* body's own
+     background is painted, making it invisible instead of behind
+     content. */
+  isolation: isolate;
+
+  /* Soft directional light: a faint highlight in one corner and a
+     faint shadow in the opposite corner. White/black at low alpha
+     rather than theme-color stops, since each clips gracefully against
+     its own theme's near-white or near-black canvas — the highlight
+     reads in dark mode, the shadow reads in light mode, without any
+     per-theme tuning. Fixed so it doesn't scroll with page content. */
+  background-image:
+    radial-gradient(1100px circle at 12% 8%, rgba(255, 255, 255, 0.045), transparent 55%),
+    radial-gradient(1200px circle at 88% 95%, rgba(0, 0, 0, 0.14), transparent 55%);
+  background-attachment: fixed, fixed;
+}
+
+/* Grain is rendered onto a full-viewport <canvas> by src/grain.js rather
+   than a tiled SVG background — a repeating turbulence tile has large
+   correlated blob shapes that become recognizable ("postage stamp")
+   once tiled; independently-placed random dots drawn once across the
+   whole viewport have no such repeating structure to notice. */
+
 .wrap {
   max-width: 1280px;
   margin: 0 auto;
