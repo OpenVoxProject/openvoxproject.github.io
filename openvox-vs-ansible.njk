@@ -1,0 +1,134 @@
+---
+layout: base.njk
+pageId: why
+permalink: "/openvox-vs-ansible.html"
+title: "OpenVox vs Ansible — OpenVox"
+description: "How OpenVox and Ansible differ: declarative vs procedural, pull vs push, agent vs agentless, and where each one actually fits."
+---
+<vox-breadcrumbs class="vox-p-top-md">
+    <a href="/">Home</a>
+    <a href="/why-openvox.html">Why OpenVox</a>
+    <span aria-current="page">OpenVox vs Ansible</span>
+</vox-breadcrumbs>
+
+<vox-hero eyebrow="OpenVox vs Ansible" heading="Two different answers to the same problem.">
+  <p>
+    Ansible is the tool most people reach for first: agentless, YAML-based, easy to start
+    with over SSH. OpenVox takes a different approach built for a different job, keeping
+    a fleet in a known state continuously rather than running a script when someone
+    remembers to.
+  </p>
+  <div slot="actions">
+    <vox-button href="#" variant="brand" class="vox-m-right-lg">Get Started</vox-button>
+    <vox-cta href="/why-openvox.html">Why OpenVox</vox-cta>
+  </div>
+</vox-hero>
+
+<section class="section">
+  <h2 class="section-heading">At a glance</h2>
+  <div class="vox-table-wrap">
+    <table class="vox-table">
+      <thead>
+        <tr>
+          <th scope="col">Dimension</th>
+          <th scope="col">OpenVox</th>
+          <th scope="col">Ansible</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Model</th>
+          <td>Declarative: describe the end state</td>
+          <td>Procedural: describe the steps to run</td>
+        </tr>
+        <tr>
+          <th scope="row">Execution</th>
+          <td>Pull-based agent, checks in on a schedule</td>
+          <td>Push-based, runs over SSH when invoked</td>
+        </tr>
+        <tr>
+          <th scope="row">Drift</th>
+          <td>Detected and corrected automatically every run</td>
+          <td>Only corrected the next time a playbook runs</td>
+        </tr>
+        <tr>
+          <th scope="row">Target requirements</th>
+          <td>Agent installed (or agentless via Bolt)</td>
+          <td>SSH access and Python, no agent required</td>
+        </tr>
+        <tr>
+          <th scope="row">Language</th>
+          <td>Purpose-built declarative DSL</td>
+          <td>YAML plus Jinja2 templating</td>
+        </tr>
+        <tr>
+          <th scope="row">Ordering</th>
+          <td>Explicit dependency graph between resources</td>
+          <td>Sequential, top-to-bottom task order</td>
+        </tr>
+        <tr>
+          <th scope="row">Ecosystem</th>
+          <td>Puppet Forge modules</td>
+          <td>Ansible Galaxy roles and collections</td>
+        </tr>
+        <tr>
+          <th scope="row">Governance</th>
+          <td>Community-run, stewarded by Vox Pupuli</td>
+          <td>Owned by Red Hat / IBM</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Where OpenVox is the better fit</h2>
+  <vox-grid class="card-grid" min="280px">
+    <vox-card heading="You need enforcement, not just execution.">
+      A pull-based agent that runs on a schedule catches drift whether or not a human
+      remembers to re-run a playbook. If "did this actually stay applied" matters more
+      than "did this run once," that's OpenVox's whole design point.
+    </vox-card>
+    <vox-card heading="Your fleet is large or long-lived.">
+      A dependency graph and typed classes hold up better than sequential YAML once you're
+      past a few hundred nodes and several years of accumulated automation.
+    </vox-card>
+    <vox-card heading="You already have Puppet code.">
+      Manifests, modules, and Forge content carry over directly. There's nothing to
+      rewrite.
+    </vox-card>
+  </vox-grid>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Where Ansible is the better fit</h2>
+  <vox-grid class="card-grid" min="280px">
+    <vox-card heading="You want zero agents.">
+      SSH and Python are usually already there. For small fleets, one-off provisioning, or
+      environments where installing an agent isn't an option, that's a real advantage.
+    </vox-card>
+    <vox-card heading="Your work is mostly orchestration.">
+      Rolling deploys, multi-host sequencing, and "do this, then that, in this order"
+      tasks map naturally onto a procedural playbook in a way a declarative model doesn't.
+    </vox-card>
+    <vox-card heading="YAML is a lower barrier for your team.">
+      If most of your contributors aren't going to learn a DSL, Ansible's shallower
+      learning curve can get more people committing automation sooner.
+    </vox-card>
+  </vox-grid>
+
+  <vox-callout variant="info" heading="Not mutually exclusive" class="vox-m-top-lg">
+    Plenty of teams run both: OpenVox holding steady state on long-lived infrastructure,
+    Ansible handling ad hoc orchestration and provisioning on top of it.
+  </vox-callout>
+</section>
+
+<section class="section">
+  <vox-cta-band heading="See it hold state on your own fleet.">
+    <p>Install OpenVox in minutes and bring your existing Puppet code with you.</p>
+    <div slot="actions">
+      <vox-button href="#" variant="brand">Installation Guide</vox-button>
+      <vox-button href="#" variant="alt">Join the Community</vox-button>
+    </div>
+  </vox-cta-band>
+</section>
