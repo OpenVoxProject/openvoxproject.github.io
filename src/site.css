@@ -70,3 +70,22 @@ body {
 .card-grid {
   margin-top: var(--vox-space-6);
 }
+
+vox-card [slot='icon'] {
+  display: flex;
+  color: var(--vox-color-brand-1);
+}
+
+vox-card [slot='icon'] svg {
+  width: 26px;
+  height: 26px;
+}
+
+.billboard-graphic {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  margin: 0 auto;
+  color: var(--vox-color-brand-1);
+}

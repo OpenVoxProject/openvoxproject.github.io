@@ -2,6 +2,7 @@
   {
     "slug": "openvox",
     "name": "OpenVox",
+    "icon": "<svg viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><ellipse cx=\"24\" cy=\"24\" rx=\"18\" ry=\"7\"/><ellipse cx=\"24\" cy=\"24\" rx=\"18\" ry=\"7\" transform=\"rotate(60 24 24)\"/><ellipse cx=\"24\" cy=\"24\" rx=\"18\" ry=\"7\" transform=\"rotate(120 24 24)\"/><circle cx=\"24\" cy=\"24\" r=\"2.6\" fill=\"currentColor\" stroke=\"none\"/></svg>",
     "eyebrow": "Core Platform",
     "tagline": "The engine itself",
     "summary": "OpenVox is the community implementation of Puppet — the agent and catalog compiler that keeps every managed node in its declared state. It runs standalone or paired with OpenVox Server, and every manifest, module, and Hiera dataset you already have carries over unchanged.",
@@ -28,6 +29,7 @@
   {
     "slug": "openvox-server",
     "name": "OpenVox Server",
+    "icon": "<svg viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"13\" y=\"6\" width=\"22\" height=\"11\" rx=\"2.5\"/><line x1=\"13\" y1=\"11.5\" x2=\"35\" y2=\"11.5\" stroke-width=\"1.4\"/><path d=\"M24 17 L14 34 M24 17 L24 34 M24 17 L34 34\"/><circle cx=\"14\" cy=\"36\" r=\"2.4\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"24\" cy=\"36\" r=\"2.4\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"34\" cy=\"36\" r=\"2.4\" fill=\"currentColor\" stroke=\"none\"/></svg>",
     "eyebrow": "Server",
     "tagline": "The hub your agents check in to",
     "summary": "OpenVox Server compiles catalogs, serves files, runs the certificate authority, and processes reports for every agent in your fleet. It's the JVM-based control point that turns individual OpenVox agents into a managed, auditable fleet.",
@@ -54,6 +56,7 @@
   {
     "slug": "openvoxdb",
     "name": "OpenVoxDB",
+    "icon": "<svg viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"8\" width=\"21\" height=\"5.5\" rx=\"1.8\"/><rect x=\"5\" y=\"17\" width=\"21\" height=\"5.5\" rx=\"1.8\"/><rect x=\"5\" y=\"26\" width=\"21\" height=\"5.5\" rx=\"1.8\"/><circle cx=\"33\" cy=\"33\" r=\"7\"/><line x1=\"38\" y1=\"38\" x2=\"43.5\" y2=\"43.5\"/></svg>",
     "eyebrow": "Data Warehouse",
     "tagline": "Every fact, catalog, and report — queryable",
     "summary": "OpenVoxDB stores the current facts and catalog for every managed node, plus a searchable history of run reports. It's what powers exported resources and gives you a queryable, real-time picture of your whole infrastructure.",
@@ -80,6 +83,7 @@
   {
     "slug": "openfact",
     "name": "OpenFact",
+    "icon": "<svg viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"7\" y=\"18\" width=\"13\" height=\"13\" rx=\"3\"/><path d=\"M20 20 L34 10 M20 24 L39 24 M20 29 L34 38\"/><circle cx=\"34\" cy=\"10\" r=\"2.3\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"39\" cy=\"24\" r=\"2.3\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"34\" cy=\"38\" r=\"2.3\" fill=\"currentColor\" stroke=\"none\"/></svg>",
     "eyebrow": "System Inventory",
     "tagline": "What every node knows about itself",
     "summary": "OpenFact is the community continuation of Facter — the library that discovers OS, hardware, and network facts about a node and hands them to OpenVox as structured data. It ships bundled with the OpenVox agent, so there's nothing extra to install.",
@@ -106,6 +110,7 @@
   {
     "slug": "openbolt",
     "name": "OpenBolt",
+    "icon": "<svg viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"24\" cy=\"6\" r=\"2.3\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M24 8 L19 15 L27 15 L22 22\"/><path d=\"M10 22 L38 22\"/><path d=\"M10 22 L10 34 M24 22 L24 34 M38 22 L38 34\"/><circle cx=\"10\" cy=\"36\" r=\"2.3\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"24\" cy=\"36\" r=\"2.3\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"38\" cy=\"36\" r=\"2.3\" fill=\"currentColor\" stroke=\"none\"/></svg>",
     "eyebrow": "Orchestration",
     "tagline": "Agentless, one-off, and multi-target automation",
     "summary": "OpenBolt is the community implementation of Puppet Bolt: run commands, scripts, tasks, and orchestration plans over plain SSH and WinRM, with no agent to install or maintain. It's the right tool for one-time operations and multi-node orchestration that doesn't need a standing agent.",
@@ -132,6 +137,7 @@
   {
     "slug": "openvox-containers",
     "name": "OpenVox Containers",
+    "icon": "<svg viewBox=\"0 0 48 48\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M24 8 L38 15 L24 22 L10 15 Z\"/><path d=\"M10 15 L10 31 L24 38 L24 22 Z\"/><path d=\"M38 15 L38 31 L24 38 L24 22\"/><circle cx=\"24\" cy=\"15\" r=\"2.2\" fill=\"currentColor\" stroke=\"none\"/></svg>",
     "eyebrow": "Containers",
     "tagline": "OpenVox, already in a box",
     "summary": "OpenVox Containers is a set of maintained Docker and Podman images for running OpenVox Server, OpenVoxDB, OpenBolt, and the reporting tools around them — plus Compose and Helm examples for deploying the whole stack.",

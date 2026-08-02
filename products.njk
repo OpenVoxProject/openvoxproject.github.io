@@ -22,6 +22,7 @@ description: "The OpenVox family: the core platform, server, database, fact libr
   <vox-grid class="card-grid" min="280px">
     {% for product in products %}
     <vox-card heading="{{ product.name }}" href="/products/{{ product.slug }}.html">
+      <span slot="icon">{{ product.icon | safe }}</span>
       <vox-badge slot="badge" variant="neutral">{{ product.eyebrow }}</vox-badge>
       {{ product.summary }}
     </vox-card>
