@@ -1,5 +1,5 @@
-import '@avitacco/voxblocks';
-import '@avitacco/voxblocks/voxblocks.css';
+import '@openvoxproject/voxblocks';
+import '@openvoxproject/voxblocks/voxblocks.css';
 import './site.css';
 import { initGrain } from './grain.js';
 
