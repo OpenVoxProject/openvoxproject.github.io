@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<vox-breadcrumbs class="vox-p-top-md">
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <span aria-current="page">{{ page.name }}</a>
+</vox-breadcrumbs>
+
+<vox-hero eyebrow="{{ page.eyebrow }}" heading="{{ page.name }}">
+  {{ content }}
+  <div slot="actions">
+    <vox-button href="https://docs.openvoxproject.org{{ page.docsPath }}" variant="brand" target="_blank" class="vox-p-right-lg">
+      View Documentation
+    </vox-button>
+    <vox-cta href="/products.html">All Products</vox-cta>
+  </div>
+</vox-hero>
+
+<section class="section">
+  <h2 class="section-heading">Key capabilities</h2>
+  <vox-grid class="card-grid" min="240px">
+    {% for feature in page.features %}
+    <vox-card heading="{{ feature.heading }}">{{ feature.body }}</vox-card>
+    {% endfor %}
+  </vox-grid>
+</section>
