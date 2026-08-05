@@ -1,0 +1,35 @@
+title: OpenVox
+url: "https://openvoxproject.org"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  products:
+    output: true
+    permalink: /products/:path.html
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: products
+    values:
+      layout: product
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - node_modules
+  - src
+  - vite.config.js
+  - Dockerfile
+  - nginx.conf
+  - README.md
+  - assets/.vite

@@ -1,7 +1,5 @@
 ---
-layout: base.njk
 pageId: products
-permalink: "/products.html"
 title: "Products — OpenVox"
 description: "The OpenVox family: the core platform, server, database, fact library, orchestration tool, and container images."
 ---
@@ -20,11 +18,12 @@ description: "The OpenVox family: the core platform, server, database, fact libr
 
 <section class="section">
   <vox-grid class="card-grid" min="280px">
+    {% assign products = site.products | sort: "order" %}
     {% for product in products %}
-    <vox-card heading="{{ product.name }}" href="/products/{{ product.slug }}.html">
-      <span slot="icon">{{ product.icon | safe }}</span>
+    <vox-card heading="{{ product.name }}" href="{{ product.url }}">
+      <span slot="icon">{{ product.icon }}</span>
       <vox-badge slot="badge" variant="neutral">{{ product.eyebrow }}</vox-badge>
-      {{ product.summary }}
+      {{ product.content }}
     </vox-card>
     {% endfor %}
   </vox-grid>
