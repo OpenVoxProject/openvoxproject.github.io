@@ -116,6 +116,16 @@ vox-card [slot='icon'] svg {
   max-width: 60%;
 }
 
+/* Marks links that lead off the OpenVox site (e.g. to voxpupuli.org),
+   which don't follow this site's branding, so visitors aren't surprised
+   by the appearance change. */
+.external-icon {
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.35em;
+  vertical-align: -0.05em;
+}
+
 .billboard-graphic {
   display: block;
   width: 100%;
