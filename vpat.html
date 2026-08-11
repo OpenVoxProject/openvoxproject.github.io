@@ -1,0 +1,120 @@
+---
+pageId: vpat
+title: "Accessibility & VPAT — OpenVox"
+description: "The Voluntary Product Accessibility Template (VPAT) for OpenVox, describing how the software meets Section 508 accessibility standards."
+---
+<vox-breadcrumbs class="vox-p-top-md">
+    <a href="/">Home</a>
+    <span aria-current="page">Accessibility</span>
+</vox-breadcrumbs>
+
+<vox-hero eyebrow="Accessibility" heading="Accessibility & VPAT">
+  <p>
+    How the OpenVox software meets Section 508 accessibility standards.
+  </p>
+</vox-hero>
+
+<section class="section">
+  <div class="vox-prose">
+    <h2 class="section-heading">Voluntary Product Accessibility Template</h2>
+    <p>
+      The Voluntary Product Accessibility Template (VPAT) is a document that describes
+      how an information technology (IT) product, such as software, hardware, or
+      web-based applications, meets the accessibility standards defined by Section 508
+      of the US Rehabilitation Act. This VPAT describes the accessibility features of
+      the OpenVox open-source project.
+    </p>
+
+    <ul>
+      <li>Product Name: OpenVox</li>
+      <li>Version: (all versions)</li>
+    </ul>
+
+    <h3>Evaluation Methods Used</h3>
+    <p>
+      This VPAT is based on a review of the OpenVox tool and project documentation,
+      including the project website and the software documentation. It also references
+      upstream documentation from the
+      <a href="https://www.puppet.com/docs/puppet/latest" target="_blank">puppet.com</a>
+      website.
+    </p>
+
+    <h3>Section 1194.21 &mdash; Software Applications and Operating Systems</h3>
+    <p>
+      OpenVox is a command-line utility for configuring, automating, and managing
+      computer infrastructure. It is designed as a server-agent model, driven by a
+      plain-text codebase. This means that once installed and configured, most users'
+      interactions will be via writing or editing code in their text editor of choice.
+      Users with accessibility needs may configure their editors with the assistive
+      technologies they rely on.
+    </p>
+    <p>
+      Administering, configuring, or using the software generally involves editing files
+      on the filesystem and executing commands. Like other command-line tools, this
+      software can be used with screen readers and other assistive technologies to
+      access the command-line interface to perform these operations. The OpenVox
+      software interface itself is not optimized for use with assistive technologies.
+      Users with accessibility needs may configure their command line terminal and
+      editors with the assistive technologies they rely on.
+    </p>
+
+    <h3>Section 1194.22 &mdash; Web-based Intranet and Internet Information and Applications</h3>
+    <p>OpenVox does not have any web-based features, so this section does not apply.</p>
+
+    <h3>Section 1194.23 &mdash; Telecommunications Products</h3>
+    <p>OpenVox does not include any telecommunications features, so this section does not apply.</p>
+
+    <h3>Section 1194.24 &mdash; Video and Multimedia Products</h3>
+    <p>OpenVox does not include any video or multimedia features, so this section does not apply.</p>
+
+    <h3>Section 1194.25 &mdash; Self-Contained, Closed Products</h3>
+    <p>OpenVox is an open-source command-line utility and does not meet the requirements of this section.</p>
+
+    <h3>Section 1194.26 &mdash; Desktop and Portable Computers</h3>
+    <p>
+      OpenVox is a command-line utility and does not include a graphical user interface
+      (GUI or TUI) that could be used with assistive technologies. This section does not
+      apply.
+    </p>
+
+    <h3>Section 1194.31 &mdash; Functional Performance Criteria</h3>
+    <p>OpenVox does not include any functional performance criteria.</p>
+
+    <h3>Section 1194.41 &mdash; Information, Documentation, and Support</h3>
+    <p>
+      The OpenVox project provides built-in documentation in the form of Unix man pages
+      and help function output. This documentation is accessible using screen readers
+      and other assistive technologies. The Vox Pupuli project publishes online
+      documentation in HTML format, which is accessible using screen readers and other
+      assistive technologies. The documentation includes installation instructions,
+      tutorials, best-practice guides, and other resources. However, this documentation
+      is not designed with accessibility needs in mind and may be difficult to read with
+      some screen readers and other assistive technologies. The project does not offer
+      any support services for users with disabilities.
+    </p>
+    <p>
+      As the OpenVox project is a fork of the formerly open source Puppet project, users
+      often also refer to the upstream Puppet documentation. This upstream documentation
+      includes installation and configuration instructions, conceptual guides, language
+      references, and other resources. However, this upstream documentation is not
+      designed with accessibility needs in mind and relies on Javascript in the browser
+      for basic functionality. This may make it difficult to read or navigate with some
+      screen readers and other assistive technologies.
+    </p>
+    <p>
+      Like most technical documentation, OpenVox and Puppet documentation may be
+      technical and difficult for non-technical users to understand.
+    </p>
+
+    <h3>Conclusion</h3>
+    <p>
+      OpenVox is an open-source command-line utility that provides basic accessibility
+      features for users who rely on assistive technologies. However, the software is
+      not optimized for use with assistive technologies and may require significant
+      customization to be accessible to all users. Users with accessibility needs may
+      configure their command line terminal and editors with the assistive technologies
+      they rely on. The project provides accessible online documentation, but may not be
+      suitable for non-technical users.
+    </p>
+  </div>
+</section>

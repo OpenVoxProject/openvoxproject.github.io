@@ -81,6 +81,51 @@ vox-card [slot='icon'] svg {
   height: 26px;
 }
 
+.support-grid-featured {
+  margin-bottom: var(--vox-space-6);
+}
+
+/* Support-provider logos are designed for a white background, so they
+   sit on a white plate regardless of theme rather than the page's own
+   surface color. */
+.support-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin-bottom: var(--vox-space-4);
+  padding: var(--vox-space-3);
+  background-color: #ffffff;
+  border-radius: var(--vox-radius-md);
+  box-sizing: border-box;
+}
+
+.support-logo img {
+  max-width: 80%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.support-logo--featured {
+  height: 120px;
+}
+
+.support-logo--featured img {
+  max-width: 60%;
+}
+
+/* Marks links that lead off the OpenVox site (e.g. to voxpupuli.org),
+   which don't follow this site's branding, so visitors aren't surprised
+   by the appearance change. */
+.external-icon {
+  width: 0.75em;
+  height: 0.75em;
+  margin-left: 0.35em;
+  vertical-align: -0.05em;
+}
+
 .billboard-graphic {
   display: block;
   width: 100%;
