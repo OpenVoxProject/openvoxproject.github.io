@@ -1,0 +1,54 @@
+name: Test
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  markdown_lint:
+    name: Markdown lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: List tracked Markdown files
+        id: tracked-markdown
+        shell: bash
+        # Lint git-tracked files only, so build output (_site, assets) and
+        # node_modules never leak into the lint run.
+        run: |
+          {
+            echo 'files<<EOF'
+            git ls-files '*.md' '*.markdown'
+            echo 'EOF'
+          } >> "${GITHUB_OUTPUT}"
+      - name: Lint tracked Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.0.0
+        with:
+          globs: ${{ steps.tracked-markdown.outputs.files }}
+
+  internal_links:
+    name: Internal links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '26'
+          cache: 'npm'
+      - uses: ruby/setup-ruby@89f90524b88a01fe6e0b732220432cc6142926af # v1.313.0
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - name: Install npm dependencies
+        run: npm ci
+      - name: Build assets
+        run: npm run build
+      - name: Build site
+        run: bundle exec jekyll build
+      # External links are checked manually, not in CI: sites like Slack
+      # 403 non-browser clients, which makes external checks flaky.
+      # Images/Scripts verify built asset paths exist, so a stale Vite
+      # manifest fails here instead of shipping broken pages.
+      - name: Check internal links and assets
+        run: bundle exec htmlproofer _site --disable-external --no-enforce-https --ignore-empty-alt --checks Links,Images,Scripts

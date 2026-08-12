@@ -1,0 +1,30 @@
+---
+# Mirrors the openvox-docs ruleset so Markdown conventions match across
+# OpenVox repos.
+default: true
+
+# Source line length doesn't affect the rendered page, so the cap is high
+# (400) to flag only genuinely unreadable outliers rather than forcing
+# reflows of normal prose. Table rows can't wrap, so they're exempt.
+line-length:
+  line_length: 400
+  tables: false
+
+blank_lines:
+  maximum: 2
+
+no-duplicate-heading:
+  siblings_only: true
+
+single-title:
+  front_matter_title: ""
+
+no-inline-html:
+  allowed_elements:
+    - br
+
+descriptive-link-text: false
+
+table:
+  style: 'consistent'
+  aligned_delimiter: true
