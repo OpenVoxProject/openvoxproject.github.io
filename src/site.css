@@ -126,6 +126,19 @@ vox-card [slot='icon'] svg {
   vertical-align: -0.05em;
 }
 
+.code-block {
+  margin: 0;
+  padding: var(--vox-space-4);
+  background-color: var(--vox-color-bg-elv);
+  border: 1px solid var(--vox-color-divider);
+  border-radius: var(--vox-radius-md);
+  overflow-x: auto;
+  font-family: var(--vox-font-family-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--vox-color-text-1);
+}
+
 .billboard-graphic {
   display: block;
   width: 100%;
@@ -133,4 +146,16 @@ vox-card [slot='icon'] svg {
   height: auto;
   margin: 0 auto;
   color: var(--vox-color-brand-1);
+}
+
+/* Logo glow is scoped to the home page (body.is-home, set in
+   _layouts/default.html) so the mark reads as a "you are home" cue rather
+   than decoration on every page. The <svg slot="logo"> lives in light DOM
+   (it's authored directly under <vox-header> in the layout), so it's
+   reachable with a plain descendant selector here — no ::slotted needed,
+   since that only applies to stylesheets inside the component's own
+   shadow root. drop-shadow (not box-shadow) follows the SVG's own
+   silhouette instead of glowing its rectangular bounding box. */
+body.is-home vox-header svg[slot='logo'] {
+  filter: drop-shadow(0 0 10px var(--vox-color-brand-1));
 }

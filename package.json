@@ -9,7 +9,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@openvoxproject/voxblocks": "^0.9.0"
+    "@openvoxproject/voxblocks": "^0.10.0"
   },
   "devDependencies": {
     "concurrently": "^9.1.0",

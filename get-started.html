@@ -1,0 +1,132 @@
+---
+pageId: get-started
+title: "Get Started — OpenVox"
+description: "Install OpenVox and get your first node under management: agent install for Debian/Ubuntu and RHEL, a local test run, and where to go next."
+---
+<vox-breadcrumbs class="vox-p-top-md">
+    <a href="/">Home</a>
+    <span aria-current="page">Get Started</span>
+</vox-breadcrumbs>
+
+<vox-hero eyebrow="Get Started" heading="Install OpenVox and see it hold state.">
+  <p>
+    This page is about getting OpenVox running, nothing else. Still deciding if it's the
+    right tool? Read <a href="/about.html">about OpenVox</a> or
+    <a href="/why-openvox.html">why teams choose it</a> first.
+  </p>
+  <div slot="actions">
+    <vox-button href="https://docs.openvoxproject.org/" variant="brand" target="_blank" class="vox-m-right-sm">Full Documentation</vox-button>
+    <vox-cta href="/get-support.html">Get Support</vox-cta>
+  </div>
+</vox-hero>
+
+<section class="section">
+  <h2 class="section-heading">Choose your path</h2>
+  <div class="vox-prose">
+    <p>
+      OpenVox runs standalone on a single machine, or as an agent checking in with a
+      central server across a fleet. Pick whichever matches what you're doing today — it's
+      easy to add a server later without redoing any of your code.
+    </p>
+  </div>
+
+  <vox-grid class="card-grid" min="280px">
+    <vox-card heading="Standalone">
+      Install the agent, write a manifest, and apply it locally with
+      <code>puppet apply</code>. No server, no certificates, nothing to stand up first.
+      Good for trying OpenVox out or managing a single machine.
+    </vox-card>
+    <vox-card heading="Agent + Server">
+      Install <a href="/products/openvox-server.html">OpenVox Server</a> and point agents
+      at it. Agents check in on a schedule, pull their catalog, and report back, so drift
+      gets corrected without anyone running anything by hand.
+    </vox-card>
+  </vox-grid>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Install the agent</h2>
+  <div class="vox-prose">
+    <p>
+      Packages are published at
+      <a href="https://apt.voxpupuli.org/" target="_blank">apt.voxpupuli.org</a> and
+      <a href="https://yum.voxpupuli.org/" target="_blank">yum.voxpupuli.org</a>. Both
+      commands below detect your release automatically.
+    </p>
+  </div>
+
+  <vox-tabs class="vox-m-top-md">
+    <vox-tab slot="tab" panel="deb" selected>Debian / Ubuntu</vox-tab>
+    <vox-tab slot="tab" panel="rpm">RHEL / EL</vox-tab>
+    <vox-tab-panel name="deb">
+      <pre class="code-block"><code>release="$(. /etc/os-release && echo "${ID}${VERSION_ID}")"
+wget "https://apt.voxpupuli.org/openvox8-release-${release}.deb"
+sudo dpkg -i "openvox8-release-${release}.deb"
+sudo apt update
+sudo apt install openvox-agent</code></pre>
+    </vox-tab-panel>
+    <vox-tab-panel name="rpm">
+      <pre class="code-block"><code>sudo rpm -Uvh "https://yum.voxpupuli.org/openvox8-release-el-$(rpm -E %rhel).noarch.rpm"
+sudo yum install openvox-agent</code></pre>
+    </vox-tab-panel>
+  </vox-tabs>
+
+  <div class="vox-prose vox-m-top-lg">
+    <p>
+      That's the whole install. For prerequisites, connecting an agent to a server, and
+      Windows/macOS, see the <a href="/install.html">Installation Guide</a>.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-heading" id="try-it">Try it</h2>
+  <div class="vox-prose">
+    <p>With the agent installed, apply a manifest directly, no server required:</p>
+  </div>
+  <pre class="code-block vox-m-top-md"><code>puppet apply -e "notify { 'hello, world': }"</code></pre>
+  <div class="vox-prose vox-m-top-md">
+    <p>
+      From here, the
+      <a href="https://docs.openvoxproject.org/openvox/latest/quick_start_helloworld.html" target="_blank">Hello World quick start</a>
+      walks through writing a real module and applying it with an agent and server via
+      <code>puppet agent -t</code>.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Go further</h2>
+  <vox-link-hub class="vox-m-top-md">
+    <vox-link-hub-item href="https://forge.puppet.com/" heading="Bring your modules">
+      <vox-icon slot="icon" name="module" size="sm"></vox-icon>
+      Existing Puppet manifests, Hiera data, and Forge modules carry over unchanged.
+      Browse the Forge for thousands of ready-made ones.
+    </vox-link-hub-item>
+    <vox-link-hub-item href="/products.html" heading="Explore the product family">
+      <vox-icon slot="icon" name="blocks" size="sm"></vox-icon>
+      OpenVox Server, OpenVoxDB, OpenBolt, and container images for running the whole
+      stack.
+    </vox-link-hub-item>
+    <vox-link-hub-item href="https://docs.openvoxproject.org/" heading="Read the docs">
+      <vox-icon slot="icon" name="book" size="sm"></vox-icon>
+      Full reference documentation for every OpenVox product, kept in sync with each
+      release.
+    </vox-link-hub-item>
+    <vox-link-hub-item href="/get-support.html" heading="Get support">
+      <vox-icon slot="icon" name="help" size="sm"></vox-icon>
+      Free peer support from the community, plus commercial partners for training and
+      custom development.
+    </vox-link-hub-item>
+  </vox-link-hub>
+</section>
+
+<section class="section">
+  <vox-cta-band heading="Bring your fleet along.">
+    <p>Your manifests, modules, and workflows all carry over. Nothing to rewrite.</p>
+    <div slot="actions">
+      <vox-button href="https://docs.openvoxproject.org/" variant="brand" target="_blank">Full Documentation</vox-button>
+      <vox-button href="/community.html" variant="alt">Join the Community</vox-button>
+    </div>
+  </vox-cta-band>
+</section>

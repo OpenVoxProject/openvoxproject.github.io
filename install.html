@@ -1,0 +1,179 @@
+---
+pageId: install
+title: "Installation Guide — OpenVox"
+description: "Step-by-step OpenVox agent installation: prerequisites, adding the package repository, installing on Debian, Ubuntu, RHEL, and other EL distributions, and getting the agent checked in."
+---
+<vox-breadcrumbs class="vox-p-top-md">
+    <a href="/">Home</a>
+    <span aria-current="page">Installation Guide</span>
+</vox-breadcrumbs>
+
+<vox-hero eyebrow="Installation Guide" heading="Install the OpenVox agent.">
+  <p>
+    A full walkthrough: prerequisites, adding the package repository, installing, and
+    getting the agent checked in. Looking for the two-command version instead? See
+    <a href="/get-started.html">Get Started</a>.
+  </p>
+  <div slot="actions">
+    <vox-button href="https://docs.openvoxproject.org/" variant="brand" target="_blank" class="vox-m-right-sm">Full Documentation</vox-button>
+    <vox-cta href="/get-started.html">Get Started</vox-cta>
+  </div>
+</vox-hero>
+
+<section class="section">
+  <h2 class="section-heading">Before you begin</h2>
+  <div class="vox-prose">
+    <ul>
+      <li>
+        <strong>Pick a deployment model.</strong> Standalone (<code>puppet apply</code>,
+        no server) or agent-server (agents check in on a schedule). See the
+        <a href="https://docs.openvoxproject.org/openvox/latest/architecture.html" target="_blank">architecture overview</a>
+        if you're unsure which fits.
+      </li>
+      <li>
+        <strong>Check system requirements.</strong> Confirm your OS and node counts are
+        within OpenVox's
+        <a href="https://docs.openvoxproject.org/openvox/latest/system_requirements.html" target="_blank">tested platforms and sizing</a>.
+      </li>
+      <li>
+        <strong>Migrating from Puppet?</strong> Back up <code>/etc/puppetlabs/</code>
+        first, especially on the server. OpenVox packages reuse that same directory
+        structure, and OpenVox can't run alongside an existing Puppet install.
+      </li>
+      <li>
+        <strong>Networking.</strong> Agents need to reach the server on port 8140, and
+        forward/reverse DNS should resolve correctly for every node.
+      </li>
+      <li>
+        <strong>Time sync.</strong> Certificate issuance depends on accurate system
+        clocks — make sure NTP (or similar) is running before agents request
+        certificates.
+      </li>
+    </ul>
+  </div>
+
+  <vox-callout variant="info" heading="Setting up agent-server?" class="vox-m-top-lg">
+    Install and validate <a href="/products/openvox-server.html">OpenVox Server</a>
+    first, before rolling the agent out to managed nodes. Running standalone? Skip
+    straight to the install steps below.
+  </vox-callout>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Enable the repository and install</h2>
+  <div class="vox-prose">
+    <p>
+      Packages are published at
+      <a href="https://apt.voxpupuli.org/" target="_blank">apt.voxpupuli.org</a> and
+      <a href="https://yum.voxpupuli.org/" target="_blank">yum.voxpupuli.org</a>. The
+      commands below detect your release automatically.
+    </p>
+  </div>
+
+  <vox-tabs class="vox-m-top-md">
+    <vox-tab slot="tab" panel="deb" selected>Debian / Ubuntu</vox-tab>
+    <vox-tab slot="tab" panel="rpm">RHEL / EL</vox-tab>
+    <vox-tab-panel name="deb">
+      <p class="vox-prose">Add the repository:</p>
+      <pre class="code-block vox-m-top-sm"><code>release="$(. /etc/os-release && echo "${ID}${VERSION_ID}")"
+wget "https://apt.voxpupuli.org/openvox8-release-${release}.deb"
+sudo dpkg -i "openvox8-release-${release}.deb"</code></pre>
+      <p class="vox-prose vox-m-top-md">Install the package:</p>
+      <pre class="code-block vox-m-top-sm"><code>sudo apt update
+sudo apt install openvox-agent</code></pre>
+    </vox-tab-panel>
+    <vox-tab-panel name="rpm">
+      <p class="vox-prose">Add the repository:</p>
+      <pre class="code-block vox-m-top-sm"><code>sudo rpm -Uvh "https://yum.voxpupuli.org/openvox8-release-el-$(rpm -E %rhel).noarch.rpm"</code></pre>
+      <p class="vox-prose vox-m-top-md">Install the package:</p>
+      <pre class="code-block vox-m-top-sm"><code>sudo yum install openvox-agent</code></pre>
+    </vox-tab-panel>
+  </vox-tabs>
+
+  <vox-callout variant="info" heading="Windows and macOS" class="vox-m-top-lg">
+    See the full
+    <a href="https://docs.openvoxproject.org/openvox/latest/install_windows.html" target="_blank">Windows</a>
+    and
+    <a href="https://docs.openvoxproject.org/openvox/latest/install_osx.html" target="_blank">macOS</a>
+    install guides, or the
+    <a href="https://docs.openvoxproject.org/openvox/latest/install_linux.html" target="_blank">full Linux guide</a>
+    for distributions not covered above.
+  </vox-callout>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Confirm the executables are on PATH</h2>
+  <div class="vox-prose">
+    <p>
+      OpenVox installs to <code>/opt/puppetlabs/bin</code>, which usually isn't on
+      <code>PATH</code> by default. Add it for the current session, and to your shell
+      profile if you want it to stick:
+    </p>
+  </div>
+  <pre class="code-block vox-m-top-md"><code>export PATH=/opt/puppetlabs/bin:$PATH</code></pre>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Point the agent at your server</h2>
+  <div class="vox-prose">
+    <p>
+      Running agent-server and your server isn't reachable at the hostname
+      <code>puppet</code>? Set it explicitly in
+      <code>/etc/puppetlabs/puppet/puppet.conf</code>:
+    </p>
+  </div>
+  <pre class="code-block vox-m-top-md"><code>[main]
+server = puppet.example.com</code></pre>
+  <div class="vox-prose vox-m-top-md">
+    <p>
+      Running standalone with <code>puppet apply</code>, or your server really is
+      reachable as <code>puppet</code>? Skip this step.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Start and enable the service</h2>
+  <pre class="code-block"><code>sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true</code></pre>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">Run a test check-in</h2>
+  <pre class="code-block"><code>sudo /opt/puppetlabs/bin/puppet agent --test</code></pre>
+  <div class="vox-prose vox-m-top-md">
+    <p>
+      On agent-server, the first run generates a certificate signing request. If your
+      server requires manual signing, sign it on the CA:
+    </p>
+  </div>
+  <pre class="code-block vox-m-top-md"><code>sudo /opt/puppetlabs/bin/puppetserver ca list
+sudo /opt/puppetlabs/bin/puppetserver ca sign --certname &lt;NAME&gt;</code></pre>
+  <div class="vox-prose vox-m-top-md">
+    <p>Then re-run the test check-in on the node.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-heading">What's next</h2>
+  <vox-link-hub class="vox-m-top-md">
+    <vox-link-hub-item href="/get-started.html#try-it" heading="Try it standalone">
+      <vox-icon slot="icon" name="terminal" size="sm"></vox-icon>
+      Apply a manifest locally with <code>puppet apply</code>, no server required.
+    </vox-link-hub-item>
+    <vox-link-hub-item href="https://docs.openvoxproject.org/openvox/latest/getting_started.html" heading="Set up a control repository">
+      <vox-icon slot="icon" name="repository" size="sm"></vox-icon>
+      Manage Puppet code across your infrastructure with r10k and write your first
+      module.
+    </vox-link-hub-item>
+  </vox-link-hub>
+</section>
+
+<section class="section">
+  <vox-cta-band heading="Bring your fleet along.">
+    <p>Your manifests, modules, and workflows all carry over. Nothing to rewrite.</p>
+    <div slot="actions">
+      <vox-button href="https://docs.openvoxproject.org/" variant="brand" target="_blank">Full Documentation</vox-button>
+      <vox-button href="/community.html" variant="alt">Join the Community</vox-button>
+    </div>
+  </vox-cta-band>
+</section>
