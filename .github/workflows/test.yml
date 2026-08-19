@@ -51,4 +51,7 @@ jobs:
       # Images/Scripts verify built asset paths exist, so a stale Vite
       # manifest fails here instead of shipping broken pages.
       - name: Check internal links and assets
+        # --ignore-empty-alt is deliberate: the sponsor-card logos on
+        # get-support sit inside links that already carry the company name
+        # as text, so per W3C guidance the images are decorative (alt="").
         run: bundle exec htmlproofer _site --disable-external --no-enforce-https --ignore-empty-alt --checks Links,Images,Scripts
